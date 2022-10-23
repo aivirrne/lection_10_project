@@ -1,4 +1,4 @@
-package school.lesson10;
+package school.lesson11;
 
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
