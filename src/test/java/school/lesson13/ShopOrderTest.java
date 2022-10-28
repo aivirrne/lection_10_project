@@ -1,6 +1,7 @@
-package school.lesson11;
+package school.lesson13;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ShopOrder {
+public class ShopOrderTest {
 
     private static void shopOrderTest(WebDriver driver) {
         driver.get("http://automationpractice.com/index.php");
@@ -38,13 +39,16 @@ public class ShopOrder {
         driver.findElement(By.linkText("Pay by bank wire (order processing will be longer)")).click();
         driver.findElement(By.cssSelector("#cart_navigation span")).click();
 
+        WebElement OrderMessage = driver.findElement(By.cssSelector(".cheque-indent > .dark"));
+        String ExpectedText = "Your order on My Store is complete.";
+        Assert.assertEquals(ExpectedText, OrderMessage.getText());
     }
 
     public static void main(String[] args) {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         shopOrderTest(driver);
-        //driver.quit();
+        driver.quit();
     }
 
 }

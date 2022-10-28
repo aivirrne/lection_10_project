@@ -10,8 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class TriangleTest {
     private static Triangle triangle1, triangle2, triangle3, triangle4;
 
-//    private static Logger logger = (Logger) LoggerFactory.getLogger(TriangleTest.class);
-
     @BeforeAll
     public static void setUpTriangles() {
         triangle1 = new Triangle(2, 3, 4);
