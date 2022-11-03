@@ -2,6 +2,7 @@ package school.lesson14.Shop;
 
 import com.github.javafaker.Faker;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,11 +19,13 @@ public class ShopTest {
     }
 
     @BeforeAll
+    @Description("Set Up")
     public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
+    @Description("Set Up Each")
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php");
@@ -31,6 +34,7 @@ public class ShopTest {
 
 
     @Test
+    @Description("Valid Registration Test")
     public void testRegistration() {
         home.clickSignIn()
                 .enterEmail(randomEmail())

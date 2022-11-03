@@ -1,5 +1,6 @@
 package school.lesson14.Shop;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,11 +20,13 @@ public class SignInPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Enter the email")
     public SignInPage enterEmail(String email) {
         EmailCreateField.sendKeys(email);
         return this;
     }
 
+    @Step("Click the Create Account button")
     public RegistrationPage clickCreateAccount() {
         CreateAccountButton.click();
         return new RegistrationPage(driver);

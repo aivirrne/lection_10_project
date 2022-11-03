@@ -1,6 +1,7 @@
 package school.lesson14.RegistrationForm;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,11 +13,13 @@ public class RegistrationFormTest {
     RegistrationFormPage registrationFormPage;
 
     @BeforeAll
+    @Description("Set Up")
     public static void setUpAll() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
+    @Description("Set Up Each")
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://www.way2automation.com/way2auto_jquery/registration.php#load_box");
@@ -24,6 +27,7 @@ public class RegistrationFormTest {
     }
 
     @Test
+    @Description("Valid Registration Test")
     public void testRegistrationSuccess() {
         registrationFormPage.enterFirstname("Name")
                 .enterLastname("Last-name")
@@ -41,6 +45,7 @@ public class RegistrationFormTest {
     }
 
     @Test
+    @Description("Invalid Registration Test with Unselected Hobby")
     public void testRegistrationFail() {
         registrationFormPage.enterFirstname("Name")
                 .enterLastname("Last-name")

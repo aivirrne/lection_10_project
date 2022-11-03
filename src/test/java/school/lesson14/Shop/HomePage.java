@@ -1,5 +1,6 @@
 package school.lesson14.Shop;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,6 +19,7 @@ public class HomePage {
     }
 
 
+    @Step("Click the Sign In button")
     public SignInPage clickSignIn () {
         SignInButton.click();
         return new SignInPage(driver);

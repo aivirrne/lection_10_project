@@ -1,5 +1,6 @@
 package school.lesson14.Shop;
 
+import io.qameta.allure.Step;
 import junit.framework.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class MyAccountPage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Assert that registration is successful")
     public MyAccountPage assertPage() {
         String ExpectedText = "Welcome to your account. Here you can manage all of your personal information and orders.";
         Assert.assertEquals(ExpectedText, WelcomeToAccountText.getText());
